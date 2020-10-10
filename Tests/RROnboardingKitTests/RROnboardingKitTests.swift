@@ -5,7 +5,10 @@ import SwiftUI
 final class RROnboardingKitTests: XCTestCase {
     func testExample() {
         var body: some View {
-            RROnboardingKit.IntroductionView(title: "Gradient Game", accentColor: Color(.systemIndigo))
+            ScrollView {
+                RROnboardingKit.TitleView(isIntroductionView: true, title: "New App")
+                RROnboardingKit.InformationDetailView(header: "New feature", description: "This is going to be an exciting feature", imageName: "plus.circle.fill")
+            }
         }
     }
 
