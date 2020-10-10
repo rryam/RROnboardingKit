@@ -4,7 +4,6 @@ public struct RROnboardingKit {
     public struct TitleView: View {
         var isIntroductionView: Bool
         var title: String
-        var accentColor: Color = .black
         var textSize: CGFloat = 30
 
         /// The title view of the onboarding screen.
@@ -12,12 +11,10 @@ public struct RROnboardingKit {
         ///
         ///   - isIntroductionView: State if it is an introduction view or an update view.
         ///   - title: The title of your application. For example, if the name of your app is "Gradient Game", it'll show "WELCOME TO GRADIENT GAME"
-        ///   - accentColor: Accent color on the title text.
         ///   - textSize: The size of the text of the title. The default is 30, which dynamically changes according to the system font size.
-        public init(isIntroductionView: Bool, title: String, accentColor: Color = .black, textSize: CGFloat = 30) {
+        public init(isIntroductionView: Bool, title: String, textSize: CGFloat = 30) {
             self.isIntroductionView = isIntroductionView
             self.title = title
-            self.accentColor = accentColor
             self.textSize = textSize
         }
 
@@ -32,7 +29,6 @@ public struct RROnboardingKit {
                     .fontWeight(.black)
                     .modifier(ScaledFont(size: textSize))
             }
-            .accentColor(accentColor)
             .accessibilityElement(children: .combine)
             .accessibility(addTraits: .isHeader)
             .padding(.horizontal)
@@ -77,7 +73,7 @@ public struct RROnboardingKit {
                 }
                 .accessibilityElement(children: .combine)
             }
-            .padding(.vertical)
+            .padding()
         }
     }
 }
